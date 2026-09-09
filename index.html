@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Phalaka-Yantra Simulation</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Phalaka-Yantra</h1>
+        <p>Interactive 3D Simulation of Bhāskara II's Astronomical Instrument</p>
+    </header>
+
+    <main>
+
+        <section id="simulation">
+            <!-- Three.js will create the 3D model here -->
+        </section>
+
+        <aside id="controls">
+
+            <h2>Controls</h2>
+            <h3>Observation</h3>
+
+<p>
+    Adjust the Sun's altitude to simulate
+    observing the Sun with the instrument.
+</p>
+
+            <label for="sunAltitude">
+                Observed Sun Altitude:
+                <span id="altitudeValue">45°</span>
+            </label>
+
+            <input
+                type="range"
+                id="sunAltitude"
+                min="0"
+                max="90"
+                value="45"
+            >
+
+<label for="armAngle">
+    Index Arm Angle:
+    <span id="angleValue">45°</span>
+</label>
+
+<input
+    type="range"
+    id="armAngle"
+    min="0"
+    max="90"
+    value="45"
+>
+
+            <button id="resetButton">Reset</button>
+
+            <div id="measurement">
+    <h2>Current Observation</h2>
+
+    <p>
+        Sun Altitude:
+        <strong id="readingAltitude">45°</strong>
+    </p>
+
+    <p>
+        Index Arm Reading:
+        <strong id="readingArm">45°</strong>
+    </p>
+
+    <p id="readingDescription">
+        The index arm is aligned with the observed
+        altitude of the Sun.
+    </p>
+    <hr>
+
+    <h3>Calculation Parameters</h3>
+
+<p>
+    These values are used to calculate the
+    Sun's hour angle and time from solar noon.
+</p>
+
+<label for="latitude">
+    Observer Latitude:
+    <span id="latitudeValue">20°</span>
+</label>
+
+<input
+    type="range"
+    id="latitude"
+    min="0"
+    max="60"
+    value="20"
+>
+
+<label for="declination">
+    Sun Declination:
+    <span id="declinationValue">0°</span>
+</label>
+
+<input
+    type="range"
+    id="declination"
+    min="-23"
+    max="23"
+    value="0"
+>
+
+<div id="timeReading">
+
+    <h2>Time Reading</h2>
+
+    <p id="timeExplanation">
+    The hour angle shows how far the Sun is from
+    local solar noon.
+    </p>
+
+    <p>
+        Hour Angle:
+        <strong id="hourAngle">0°</strong>
+    </p>
+
+    <p>
+        Time from Solar Noon:
+        <strong id="solarTime">0 min</strong>
+    </p>
+
+    <p>
+        Traditional Reading:
+        <strong id="ghatiReading">0 ghaṭī</strong>
+    </p>
+
+</div>
+</div>
+
+            <hr>
+
+            <h2>About the Instrument</h2>
+
+            <p>
+                The Phalaka-Yantra was an astronomical instrument
+                described by Bhāskara II.
+            </p>
+
+            <p>
+                The instrument consists of a rectangular board,
+                a central pin, a graduated circle and a movable
+                index arm.
+            </p>
+
+            <div class="legend">
+                <p>🟢 Pin / Axis</p>
+                <p>🔵 Graduated Circle</p>
+                <p>🔴 Index Arm</p>
+            </div>
+
+        </aside>
+
+    </main>
+
+    <footer>
+        <p>Drag to rotate • Scroll to zoom</p>
+    </footer>
+
+    <script type="importmap">
+{
+    "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js"
+    }
+}
+</script>
+
+<script type="module" src="script.js"></script>
+
+</body>
+</html>
