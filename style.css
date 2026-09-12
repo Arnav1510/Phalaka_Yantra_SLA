@@ -153,3 +153,22 @@ canvas {
     color: #94a3b8;
     margin-bottom: 15px;
 }
+#methodExplanation {
+    margin-top: 20px;
+    padding: 15px;
+    background: #1f2937;
+    border: 1px solid #374151;
+    border-radius: 10px;
+}
+
+#methodExplanation h2 {
+    margin-bottom: 15px;
+    font-size: 20px;
+}
+
+#methodExplanation p {
+    margin-bottom: 10px;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #cbd5e1;
+}
