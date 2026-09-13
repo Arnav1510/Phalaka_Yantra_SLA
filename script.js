@@ -304,15 +304,16 @@ const tickMaterial = new THREE.LineBasicMaterial({
     color: 0xffffff
 });
 
-for (let i = 0; i < 60; i++) {
+for (let i = 0; i < 360; i++) {
 
-    const angle = (i / 60) * Math.PI * 2;
+    const angle = (i / 360) * Math.PI * 2;
 
-    // Make every 5th mark longer
     const outerRadius = radius;
-    const innerRadius = (i % 5 === 0)
+
+    // Longer marks every 6 degrees
+    const innerRadius = (i % 6 === 0)
         ? radius - 0.15
-        : radius - 0.08;
+        : radius - 0.05;
 
     const points = [];
 
@@ -585,6 +586,23 @@ let cosH =
     (Math.sin(h) -
         Math.sin(phi) * Math.sin(delta)) /
     (Math.cos(phi) * Math.cos(delta));
+
+ 
+
+// Check whether the Sun position is physically possible
+if (cosH < -1 || cosH > 1) {
+
+    document.getElementById("hourAngle")
+        .textContent = "Not possible";
+
+    document.getElementById("solarTime")
+        .textContent = "Not possible";
+
+    document.getElementById("ghatiReading")
+        .textContent = "Not possible";
+
+    return;
+}
 
 // Prevent tiny floating-point errors
 cosH = THREE.MathUtils.clamp(
